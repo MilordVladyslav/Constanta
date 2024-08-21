@@ -1,0 +1,343 @@
+@mixin constanta_loading_skeleton($color) {
+  background: linear-gradient(0.25turn, transparent, $color, transparent), linear-gradient(transparent, transparent),
+    radial-gradient(38px circle at 19px 19px, transparent 50%, transparent 51%),
+    linear-gradient(transparent, transparent);
+  background-repeat: no-repeat;
+}
+
+@keyframes constanta_loading_skeleton {
+  from {
+    transform: translateX(-100%);
+  }
+
+  to {
+    transform: translateX(100%);
+  }
+}
+
+.constanta-loading-skeleton {
+  position: relative;
+
+  overflow: hidden;
+
+  border-radius: 2px;
+
+  &::after {
+    content: '';
+
+    display: block;
+
+    position: absolute;
+    top: 0;
+    left: 0;
+
+    width: 200%;
+    height: 200%;
+
+    animation: constanta_loading_skeleton 2.5s infinite;
+
+    opacity: 0.35;
+  }
+
+  &.light {
+    background-color: $l_surface_gray;
+
+    &::after {
+      @include constanta_loading_skeleton($l_content_gray);
+    }
+  }
+
+  &.dark {
+    background-color: $d_surface_gray_2;
+
+    &::after {
+      @include constanta_loading_skeleton($d_content_gray);
+    }
+  }
+
+  &.big-border-radius {
+    border-radius: 24px;
+  }
+}
+
+/**
+ * VARIANTS
+ */
+
+.constanta-loading-skeleton {
+  &.switch {
+    @include strict_size(24px, 44px);
+    border-radius: 24px;
+  }
+
+  &.photo {
+    @include strict_size(124px, 198px);
+  }
+
+  &.btn-link {
+    @include strict_size(12px, 93px);
+  }
+
+  &.\31 6x16 {
+    @include strict_size(16px, 16px);
+  }
+
+  &.\33 2x32 {
+    @include strict_size(32px, 32px);
+  }
+}
+
+.const-loading-skeleton-button {
+  position: relative;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 0 20px;
+
+  .constanta-loading-skeleton.title {
+    display: none;
+
+    position: relative;
+    z-index: 10;
+  }
+
+  &.small {
+    @include strict_size(32px, false);
+
+    .constanta-loading-skeleton.title {
+      @include strict_size(16px, false);
+    }
+  }
+
+  &.medium {
+    @include strict_size(40px, false);
+
+    .constanta-loading-skeleton.title {
+      @include strict_size(20px, false);
+    }
+  }
+
+  &.large {
+    @include strict_size(48px, false);
+
+    .constanta-loading-skeleton.title {
+      @include strict_size(20px, false);
+    }
+  }
+
+  &.border,
+  &.ghost {
+    .constanta-loading-skeleton.title {
+      display: block;
+    }
+
+    &::before {
+      content: '';
+
+      position: absolute;
+      top: 1px;
+      left: 1px;
+
+      z-index: 5;
+
+      width: calc(100% - 2px);
+      height: calc(100% - 2px);
+    }
+  }
+
+  &.ghost {
+    &::before {
+      top: 0;
+      left: 0;
+
+      width: 100%;
+      height: 100%;
+    }
+  }
+
+  &.dark {
+    &::before {
+      background-color: $background_dark;
+    }
+  }
+
+  &.light {
+    &::before {
+      background-color: $background_light;
+    }
+  }
+}
+
+.constanta-loading-skeleton-table-cell {
+  &--title {
+    position: relative;
+
+    max-width: max-content;
+
+    span {
+      position: absolute;
+      top: 0;
+      left: 0;
+
+      width: 100%;
+      height: 100%;
+    }
+  }
+
+  &.small {
+    .constanta-loading-skeleton {
+      @include strict_size(12px, false);
+      width: 100%;
+    }
+  }
+
+  &.medium {
+    .constanta-loading-skeleton {
+      @include strict_size(20px, false);
+      width: 100%;
+    }
+  }
+
+  &.large {
+    .constanta-loading-skeleton {
+      @include strict_size(24px, false);
+      width: 100%;
+    }
+  }
+}
+
+.constanta-loading-skeleton-collapse {
+  display: flex;
+  flex-direction: column;
+  gap: 16px 0;
+
+  &__content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0 16px;
+
+    padding: 0 6px;
+
+    .title {
+      @include strict_size(24px, false);
+      width: 100%;
+      max-width: 150px;
+    }
+
+    .icon {
+      @include strict_size(24px, 24px);
+      animation-delay: 0.2s;
+    }
+  }
+
+  .stripe {
+    @include strict_size(1px, false);
+    width: 100%;
+    animation-delay: 0.2s;
+  }
+}
+
+.constanta-loading-skeleton-input {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  gap: 10px 0;
+
+  .constanta-loading-skeleton.title {
+    width: 35%;
+
+    margin: {
+      right: 10px;
+    }
+  }
+
+  .constanta-loading-skeleton.input {
+    position: relative;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 100%;
+
+    padding: 0 12px;
+
+    &::before {
+      content: '';
+
+      position: absolute;
+      top: 1px;
+      left: 1px;
+      z-index: 5;
+
+      display: block;
+
+      width: calc(100% - 2px);
+      height: calc(100% - 2px);
+    }
+
+    &.dark {
+      &::before {
+        background-color: $background_dark;
+      }
+    }
+
+    &.light {
+      &::before {
+        background-color: $background_light;
+      }
+    }
+  }
+
+  .constanta-loading-skeleton.value {
+    position: relative;
+    z-index: 10;
+    width: 100%;
+  }
+
+  &.large {
+    .constanta-loading-skeleton.title {
+      @include strict_size(14px, false);
+    }
+
+    .constanta-loading-skeleton.input {
+      @include strict_size(40px, false);
+    }
+
+    .constanta-loading-skeleton.value {
+      @include strict_size(16px, false);
+    }
+  }
+
+  &.medium {
+    .constanta-loading-skeleton.title {
+      @include strict_size(12px, false);
+    }
+
+    .constanta-loading-skeleton.input {
+      @include strict_size(32px, false);
+    }
+
+    .constanta-loading-skeleton.value {
+      @include strict_size(14px, false);
+    }
+  }
+
+  &.small {
+    .constanta-loading-skeleton.title {
+      @include strict_size(12px, false);
+    }
+
+    .constanta-loading-skeleton.input {
+      @include strict_size(24px, false);
+    }
+
+    .constanta-loading-skeleton.value {
+      @include strict_size(12px, false);
+    }
+  }
+}

@@ -1,0 +1,20 @@
+.constanta-drawer-action-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0 10px;
+
+  padding: 12px 16px;
+
+  border: {
+    top: 1px solid;
+  }
+
+  &.light {
+    border-top-color: $l_border_decorative;
+  }
+
+  &.dark {
+    border-top-color: $d_border_decorative;
+  }
+}

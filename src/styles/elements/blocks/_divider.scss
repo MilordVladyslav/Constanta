@@ -1,0 +1,39 @@
+.constanta-divider {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0 8px;
+
+  p {
+    @include font_style_body_large;
+  }
+
+  &.light p {
+    color: $l_text_weaker
+  }
+
+  &.dark p {
+    color: $d_text_weaker
+  }
+}
+
+hr {
+  border: {
+    top: 1px solid;
+    left: none;
+    right: none;
+    bottom: none;
+  }
+
+  &.light {
+    border-color: $l_border_decorative;
+  }
+
+  &.dark {
+    border-color: $d_border_decorative;
+  }
+
+  &.double {
+    border-top-width: 2px;
+  }
+}

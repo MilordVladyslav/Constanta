@@ -1,0 +1,272 @@
+.constanta-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: nowrap;
+  gap: 0 8px;
+
+  border-radius: 2px;
+
+  white-space: nowrap;
+
+  user-select: none;
+
+  &,
+  & * {
+    transition: $trs;
+  }
+
+  @include btn_sizes;
+
+  /**
+    * Styles
+    */
+
+  &.light,
+  &:not(.dark) {
+    color: $l_text_main;
+
+    svg {
+      @include svg_color($l_content_gray);
+    }
+
+    &:disabled {
+      color: $l_disabled_text !important;
+
+      border-color: $l_disabled_border !important;
+
+      @include svg_color($l_disabled_content !important);
+    }
+  }
+
+  &.dark {
+    color: $d_text_main;
+
+    border-color: $d_border_clickable;
+
+    svg {
+      @include svg_color($d_content_gray);
+    }
+
+    &:disabled {
+      color: $d_disabled_text !important;
+
+      border-color: $d_disabled_border !important;
+
+      @include svg_color($d_disabled_content !important);
+    }
+  }
+
+  &.ghost {
+    border: none !important;
+  }
+
+  &.border,
+  &.ghost {
+    border: 1px solid $l_border_clickable;
+
+    &.primary {
+      &:hover,
+      &:focus {
+        color: $primary_hover;
+
+        border-color: $primary_hover;
+
+        svg {
+          @include svg_color($primary_hover);
+        }
+      }
+
+      &:active {
+        color: $primary_pressed;
+
+        border-color: $primary_pressed;
+
+        svg {
+          @include svg_color($primary_pressed);
+        }
+      }
+    }
+
+    &.secondary {
+      &:hover,
+      &:focus {
+        color: $secondary_hover;
+
+        border-color: $secondary_hover;
+
+        svg {
+          @include svg_color($secondary_hover);
+        }
+      }
+
+      &:active {
+        color: $secondary_pressed;
+
+        border-color: $secondary_pressed;
+
+        svg {
+          @include svg_color($secondary_pressed);
+        }
+      }
+    }
+  }
+
+  &.fill {
+    color: $l_text_white;
+
+    svg {
+      @include svg_color($l_content_white);
+    }
+
+    &.cta {
+      background-color: $cta_default;
+
+      &:hover,
+      &:focus {
+        background-color: $cta_hover;
+      }
+
+      &:active {
+        background-color: $cta_pressed;
+      }
+    }
+
+    &.primary {
+      background-color: $primary_default;
+
+      &:hover,
+      &:focus {
+        background-color: $primary_hover;
+      }
+
+      &:active {
+        background-color: $primary_pressed;
+      }
+    }
+
+    &.secondary {
+      background-color: $secondary_default;
+
+      &:hover,
+      &:focus {
+        background-color: $secondary_hover;
+      }
+
+      &:active {
+        background-color: $secondary_pressed;
+      }
+    }
+
+    &.light,
+    &:not(.dark) {
+      &:disabled {
+        background-color: $l_disabled_background !important;
+      }
+    }
+
+    &.dark {
+      &:disabled {
+        background-color: $d_disabled_background !important;
+      }
+    }
+  }
+}
+
+.constanta-btn-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 0 4px;
+
+  color: $secondary_default;
+
+  &:not(.medium) {
+    @include font_style_body_large;
+  }
+
+  &.medium {
+    @include font_style_body_medium;
+  }
+
+
+  svg {
+    @include strict_size(16px, 16px);
+
+    &:not(.reset) {
+      @include svg_color($secondary_default);
+    }
+  }
+
+  &:hover,
+  &:focus {
+    color: $secondary_hover;
+
+    svg:not(.reset) {
+      @include svg_color($secondary_hover);
+    }
+  }
+
+  &:active {
+    color: $secondary_pressed;
+
+    svg:not(.reset) {
+      @include svg_color($secondary_pressed);
+    }
+  }
+
+  &.green {
+    color: $additional_colors_green_success;
+
+    svg:not(.reset) {
+      @include svg_color($additional_colors_green_success);
+    }
+  }
+
+  &.red {
+    color: $additional_colors_red_error;
+
+    svg:not(.reset) {
+      @include svg_color($additional_colors_red_error);
+    }
+  }
+
+  &.light,
+  &:not(.dark) {
+    &.grey,
+    &.gray {
+      color: $l_text_weak;
+
+      svg:not(.reset) {
+        @include svg_color($l_content_gray);
+      }
+    }
+
+    &:disabled {
+      color: $l_disabled_text;
+
+      svg:not(.reset) {
+        @include svg_color($l_disabled_content);
+      }
+    }
+  }
+
+  &.dark {
+    &.grey,
+    &.gray {
+      color: $d_text_weak;
+
+      svg:not(.reset) {
+        @include svg_color($d_content_gray);
+      }
+    }
+
+    &:disabled {
+      color: $d_disabled_text;
+
+      svg:not(.reset) {
+        @include svg_color($d_disabled_content);
+      }
+    }
+  }
+}

@@ -1,0 +1,12 @@
+.ps {
+  .ps__rail-y,
+  .ps__rail-x {
+    transition: none !important;
+    background: none !important;
+  }
+
+  .ps__thumb-y,
+  .ps__thumb-x {
+    transition: background-color 0.2s linear, width 0.2s ease-in-out !important;
+  }
+}

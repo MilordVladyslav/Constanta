@@ -1,0 +1,113 @@
+.constanta-file-info {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0 4px;
+
+  padding: 8px 12px;
+
+  min-width: min-content;
+
+  & &__file-name {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 0 4px;
+  }
+
+  & &__content {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 0 4px;
+  }
+
+  .file-name,
+  .file-size {
+    line-height: 24px;
+    white-space: nowrap;
+  }
+
+  .file-name {
+    width: 100%;
+    text-overflow: ellipsis;
+    overflow: hidden;
+  }
+
+  .file-icon {
+    @include strict_size(24px, 24px);
+  }
+
+  .file-delete {
+    @include strict_size(16px, 16px);
+
+    svg {
+      width: 100%;
+      height: 100%;
+    }
+  }
+
+  &:hover {
+    .file-name {
+      color: $secondary_hover;
+    }
+  }
+}
+
+.light.constanta-file-info {
+  background-color: $l_surface_decorative_blue;
+
+  .file-icon {
+    @include svg_color($l_content_gray);
+  }
+
+  .file-name {
+    color: $l_text_link;
+  }
+
+  .file-size {
+    color: $l_text_weak;
+  }
+
+  &.disabled {
+    background-color: $l_disabled_background;
+
+    .file-name,
+    .file-size {
+      color: $l_disabled_text;
+    }
+
+    svg {
+      @include svg_color($l_disabled_content);
+    }
+  }
+}
+
+.dark.constanta-file-info {
+  background-color: $d_surface_decorative_blue;
+
+  .file-icon {
+    @include svg_color($d_content_gray);
+  }
+
+  .file-name {
+    color: $d_text_link;
+  }
+
+  .file-size {
+    color: $d_text_weak;
+  }
+
+  &.disabled {
+    background-color: $d_disabled_background;
+
+    .file-name,
+    .file-size {
+      color: $d_disabled_text;
+    }
+
+    svg {
+      @include svg_color($d_disabled_content);
+    }
+  }
+}

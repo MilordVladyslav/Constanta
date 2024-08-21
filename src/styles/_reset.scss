@@ -1,0 +1,68 @@
+* {
+  box-sizing: border-box;
+  outline: rgba($color: #000000, $alpha: 0);
+  font-family: $ff_inter;
+
+  &,
+  &::after,
+  &::before {
+    transition: $trs !important;
+  }
+
+  &::selection {
+    background-color: $primary_default;
+
+    color: #ffffff;
+  }
+}
+
+a {
+  text-decoration: none;
+}
+
+img {
+  user-select: none;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+a,
+p,
+span,
+small,
+button,
+ol,
+ul {
+  margin: 0;
+  padding: 0;
+}
+
+b {
+  color: inherit;
+}
+
+ol,
+ul,
+nav {
+  list-style: none;
+}
+
+table {
+  border-spacing: 0;
+  border-collapse: collapse;
+}
+
+button {
+  background: none;
+  border: none;
+
+  cursor: pointer;
+
+  &:disabled {
+    cursor: not-allowed;
+  }
+}

@@ -1,0 +1,27 @@
+.constanta-aside-modal {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 900;
+
+  overflow-y: auto;
+
+  display: flex;
+  align-items: flex-end;
+  justify-content: flex-end;
+
+  padding: {
+    left: 2.75rem;
+  }
+
+  background-color: rgba($color: $background_opacity, $alpha: 0.5);
+
+  height: 100%;
+
+  .constanta-drawer {
+    width: 100%;
+    max-width: max-content;
+  }
+}

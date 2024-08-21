@@ -1,0 +1,22 @@
+import { Meta } from '@storybook/blocks';
+
+import LinkTo from '@storybook/addon-links/react';
+
+import { blocks, controls, features } from './ElementalList';
+
+<Meta title="Element list" />
+
+## { blocks.title }
+<ul>
+  { blocks.elements.map((el, i) => (<li key={i}><LinkTo kind={`${blocks.kindPrefix}${el.kind}`} story={el.title}>{el.title}</LinkTo></li>)) }
+</ul>
+
+## { controls.title }
+<ul>
+  { controls.elements.map((el, i) => (<li key={i}><LinkTo kind={`${controls.kindPrefix}${el.kind}`} story={el.title}>{el.title}</LinkTo></li>)) }
+</ul>
+
+## { features.title }
+<ul>
+  { features.elements.map((el, i) => (<li key={i}><LinkTo kind={`${features.kindPrefix}${el.kind}`} story={el.title}>{el.title}</LinkTo></li>)) }
+</ul>

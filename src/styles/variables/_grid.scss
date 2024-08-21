@@ -1,0 +1,37 @@
+// ROW GRID
+// row grid have gap but we not use him because gap = one row;
+$row_height: 4px;
+
+// COLUMN GRID
+// we have not column width because all content flexible but we have gap between content;
+$column_gap: 16px;
+$column_sidebar_close: 91px;
+$column_sidebar_open: 79px;
+$column_max_count: 12;
+
+// DIALOG/POPUP GRID
+$dialog_column: 100px;
+$dialog_gap: 16px;
+
+$dialog_small_width: $dialog_column * 4 + $dialog_gap * 3;
+
+// SIDEBAR
+$sidbar_hide: 56px;
+$sidebar_open: #{80px * 2 + $column_gap};
+$sidebar_margin: 24px;
+
+// GLOBAL
+// horizontal padding not used between edge of the screen and sidebar;
+$global_horizontal_padding: 85px;
+$global_vertical_padding: 80px;
+
+$dropdown_gap: 4px;
+
+// MIXINS
+@mixin col_gap {
+  gap: 0 $column_gap;
+}
+
+@mixin height_by_row($count_row) {
+  @include strict_size(#{$row_height * $count_row}, false);
+}

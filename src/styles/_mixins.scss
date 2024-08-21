@@ -1,0 +1,102 @@
+@mixin strict_size($height, $width) {
+  @if $height {
+    height: #{$height};
+    min-height: #{$height};
+    max-height: #{$height};
+  }
+
+  @if $width {
+    width: #{$width};
+    min-width: #{$width};
+    max-width: #{$width};
+  }
+}
+
+// !IMPORTANT! AN ELEMENT LOOKING TO THE LEFT
+@mixin rotate_element {
+  &.top-left {
+    transform: rotate(45deg);
+  }
+
+  &.top {
+    transform: rotate(90deg);
+  }
+
+  &.top-right {
+    transform: rotate(125deg);
+  }
+
+  &.right {
+    transform: rotate(180deg);
+  }
+
+  &.bottom-right {
+    transform: rotate(225deg);
+  }
+
+  &.bottom {
+    transform: rotate(270deg);
+  }
+
+  &.bottom-left {
+    transform: rotate(315deg);
+  }
+}
+
+@mixin svg_color($color) {
+  *[fill] {
+    fill: $color;
+  }
+
+  *[stroke] {
+    stroke: $color;
+  }
+}
+
+@mixin input_border($color) {
+  border-radius: 2px;
+  border-width: 1px;
+  border-style: solid;
+
+  @if $color {
+    border-color: $color;
+  }
+}
+
+@mixin btn_sizes {
+  &.small {
+    @include font_style_button_small;
+
+    @include strict_size(32px, false);
+
+    padding: 8px;
+
+    svg {
+      @include strict_size(16px, 16px);
+    }
+  }
+
+  &.medium {
+    @include font_style_button_medium;
+
+    @include strict_size(40px, false);
+
+    padding: 10px 12px;
+
+    svg {
+      @include strict_size(16px, 16px);
+    }
+  }
+
+  &.large {
+    @include font_style_button_large;
+
+    @include strict_size(48px, false);
+
+    padding: 12px 20px;
+
+    svg {
+      @include strict_size(24px, 24px);
+    }
+  }
+}

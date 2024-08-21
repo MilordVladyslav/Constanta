@@ -1,0 +1,123 @@
+.constanta-year-picker {
+  display: flex;
+  align-items: stretch;
+  justify-content: flex-start;
+  flex-direction: column;
+  border-radius: 2px;
+  width: 256px;
+  padding: 8px;
+
+  button, p, span {
+    @include font-style-body-medium;
+  }
+
+  .constanta-year.constanta-date {
+    border-radius: 2px;
+    &:hover {
+      color: $l_text_white;
+      background: $secondary_hover;
+    }
+    &:active {
+      color: $l_text_white;
+      background: $secondary_pressed;
+    }
+  }
+
+  .constanta-year-selection {
+    display: flex;
+    align-items: stretch;
+    justify-content: flex-start;
+    flex-direction: row-reverse;
+    .constanta-select-year {
+      color: $l_text_weak;
+    }
+    .constanta-current-year {
+      color: $secondary_default;
+    }
+  }
+
+  .constanta-years-calendar {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    width: 100%;
+    height: 253px;
+  }
+
+  .constanta-year {
+    width: 100%;
+    padding: 8px 0;
+  }
+
+  &.constanta-vertical {
+    width: 256px;
+    max-height: 448px;
+  }
+
+  &.constanta-horizontal {
+    width: 540px;
+    height: 376px;
+  }
+
+  .constanta-boards {
+    overflow: auto;
+    display: flex;
+    align-items: stretch;
+    justify-content: flex-start;
+    &.constanta-vertical {
+      flex-direction: column;
+    }
+    &.constanta-horizontal {
+      display: flex;
+      align-items: stretch;
+      justify-content: flex-start;
+      flex-direction: row;
+      gap: 12px;
+    }
+  }
+}
+
+.light.constanta-year-picker,
+.dark.constanta-year-picker {
+  .constanta-date {
+    &.constanta-today {
+      color: $secondary_default;
+    }
+    &.constanta-selected {
+      color: $l_text_white;
+      background: $ui_decorative_light_blue !important;
+    }
+  }
+}
+
+.light.constanta-year-picker {
+  background: $l_text_white;
+  box-shadow: $elevation_light_1;
+
+  .constanta-date {
+    &.constanta-all-select {
+      background: $l_surface_decorative_blue;
+      &:hover {
+        background: $secondary_hover;
+      }
+    }
+  }
+  .constanta-year {
+    color: $l_text_main;
+  }
+}
+
+.dark.constanta-year-picker {
+  background: $background_dark;
+  box-shadow: $elevation_dark_1;
+  .constanta-date {
+    &.constanta-all-select {
+      background: $background_dark;
+      &:hover {
+        background: $secondary_hover;
+      }
+    }
+  }
+  .constanta-year {
+    color: $l_surface_decorative_blue;
+  }
+}

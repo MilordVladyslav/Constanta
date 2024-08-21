@@ -1,0 +1,58 @@
+.constanta-badge-status {
+  display: inline-flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 0 6px;
+
+  &::before {
+    content: '';
+
+    display: block;
+
+    @include strict_size(8px, 8px);
+
+    border-radius: 100%;
+  }
+
+  &.default {
+    &::before {
+      background-color: $additional_colors_orange_default;
+    }
+  }
+
+  &.info {
+    &::before {
+      background-color: $additional_colors_blue_processing;
+    }
+  }
+
+  &.error {
+    &::before {
+      background-color: $additional_colors_red_error;
+    }
+  }
+
+  &.warning {
+    &::before {
+      background-color: $additional_colors_yellow_warning;
+    }
+  }
+
+  &.successful {
+    &::before {
+      background-color: $additional_colors_green_success;
+    }
+  }
+}
+
+.light.constanta-badge-status {
+  * {
+    color: $l_text_main;
+  }
+}
+
+.dark.constanta-badge-status {
+  * {
+    color: $d_text_main;
+  }
+}

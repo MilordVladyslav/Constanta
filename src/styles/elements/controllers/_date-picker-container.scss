@@ -1,0 +1,63 @@
+.constanta-date-picker-container {
+  .constanta-input__container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0 8px;
+
+    .constanta-date-picker-container {
+      &__values {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 0 16px;
+
+        width: 100%;
+
+        p {
+          white-space: nowrap;
+        }
+      }
+    }
+  }
+}
+
+/**
+  * Sizes
+  */
+
+.large.constanta-date-picker-container {
+  .constanta-input__container {
+    p {
+      @include font_style_body_large;
+    }
+  }
+}
+.mediu.constanta-date-picker-container {
+  .constanta-input__container {
+    p {
+      @include font_style_body_medium;
+    }
+  }
+}
+.small.constanta-date-picker-container {
+  .constanta-input__container {
+    p {
+      @include font_style_body_small;
+    }
+  }
+}
+
+/**
+  * Themes
+  */
+.light.constanta-date-picker-container {
+  p.no-value {
+    color: $l_text_weaker;
+  }
+}
+.dark.constanta-date-picker-container {
+  p.no-value {
+    color: $d_text_weaker;
+  }
+}

@@ -1,0 +1,21 @@
+svg.constanta-state-icon {
+  &.default {
+    @include svg_color($primary_default);
+  }
+
+  &.info {
+    @include svg_color($additional_colors_blue_processing);
+  }
+
+  &.error {
+    @include svg_color($additional_colors_red_error);
+  }
+
+  &.warning {
+    @include svg_color($additional_colors_yellow_warning);
+  }
+
+  &.successful {
+    @include svg_color($additional_colors_green_success);
+  }
+}

@@ -1,0 +1,148 @@
+.constanta-tabs {
+  position: relative;
+
+  display: flex;
+  align-items: center;
+
+  width: 100%;
+
+  &::before {
+    content: '';
+
+    position: absolute;
+    bottom: 0;
+    left: 0;
+
+    display: block;
+
+    @include strict_size(1px, false);
+    width: 100%;
+  }
+
+  &.small {
+    .constanta-tab {
+      padding: 8px 12px;
+
+      @include font_style_body_small;
+    }
+  }
+
+  &.medium {
+    .constanta-tab {
+      padding: 10px 12px;
+
+      @include font_style_body_medium;
+    }
+  }
+
+  &.large {
+    .constanta-tab {
+      padding: 12px;
+
+      @include font_style_body_large;
+    }
+  }
+
+  &.light {
+    &::before {
+      background-color: $l_border_clickable;
+    }
+
+    .constanta-tab {
+      svg {
+        @include svg_color($l_content_gray);
+      }
+
+      &:disabled {
+        color: $l_disabled_text !important;
+
+        border-color: $l_disabled_border !important;
+
+        svg {
+          @include svg_color($l_disabled_content !important);
+        }
+      }
+    }
+  }
+
+  &.dark {
+    &::before {
+      background-color: $d_border_clickable;
+    }
+
+    .constanta-tab {
+      color: $d_text_main;
+
+      svg {
+        @include svg_color($d_content_gray);
+      }
+
+      &:disabled {
+        color: $d_disabled_text !important;
+
+        border-color: $d_disabled_border !important;
+
+        svg {
+          @include svg_color($d_disabled_content !important);
+        }
+      }
+    }
+  }
+
+  .constanta-tab {
+    position: relative;
+    z-index: 5;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0 4px;
+
+    border-bottom: 1px solid $l_border_clickable;
+
+    user-select: none;
+    white-space: nowrap;
+
+    &:hover {
+      color: $primary_hover;
+    }
+
+    &:active {
+      color: $primary_pressed;
+    }
+
+    svg[role='button'].close {
+      &:hover {
+        @include svg_color($primary_hover);
+      }
+
+      &:active {
+        @include svg_color($primary_pressed);
+      }
+    }
+
+    &:not(.more) {
+      svg {
+        @include strict_size(16px, 16px);
+      }
+    }
+
+    &.active {
+      color: $primary_default;
+
+      border-color: $primary_default;
+
+      &:hover {
+        color: $primary_hover;
+
+        border-color: $primary_hover;
+      }
+
+      &:active {
+        color: $primary_pressed;
+
+        border-color: $primary_pressed;
+      }
+    }
+  }
+}

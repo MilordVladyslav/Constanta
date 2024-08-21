@@ -1,0 +1,151 @@
+.constanta-radio {
+  position: relative;
+
+  display: flex;
+  align-items: center;
+  gap: 0 4px;
+
+  input {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+
+    opacity: 0;
+
+    @include strict_size(0, 0);
+  }
+
+  .circle__container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 2px;
+
+    @include strict_size(24px, 24px);
+
+    .circle {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      width: 100%;
+      height: 100%;
+
+      border-radius: 100%;
+      border-width: 1px;
+      border-style: solid;
+
+      &::after {
+        content: '';
+
+        display: block;
+
+        border-radius: 100%;
+
+        @include strict_size(14px, 14px);
+
+        opacity: 0;
+      }
+    }
+  }
+
+  &--title {
+    line-height: 24px;
+
+    user-select: none;
+  }
+
+  &.checked {
+    .circle__container {
+      .circle {
+        &::after {
+          opacity: 1;
+        }
+      }
+    }
+  }
+}
+
+.light.constanta-radio {
+  .circle__container {
+    .circle {
+      border-color: $l_border_clickable;
+    }
+  }
+
+  .constanta-radio--title {
+    color: $l_text_main;
+  }
+
+  &.disabled {
+    .circle__container {
+      .circle {
+        background-color: $l_disabled_background;
+
+        &::after {
+          background-color: $l_disabled_content;
+        }
+      }
+    }
+
+    .constanta-radio--title {
+      color: $l_disabled_text;
+    }
+  }
+}
+
+.dark.constanta-radio {
+  .circle__container {
+    .circle {
+      border-color: $d_border_clickable;
+    }
+  }
+
+  .constanta-radio--title {
+    color: $d_text_main;
+  }
+
+  &.disabled {
+    .circle__container {
+      .circle {
+        background-color: $d_disabled_background;
+
+        &::after {
+          background-color: $d_disabled_content;
+        }
+      }
+    }
+
+    .constanta-radio--title {
+      color: $d_disabled_text;
+    }
+  }
+}
+
+.constanta-radio:not(.disabled) {
+  &.checked {
+    .circle__container {
+      .circle {
+        border-color: $primary_default;
+
+        &::after {
+          background-color: $primary_default;
+        }
+      }
+    }
+  }
+
+  &:hover,
+  &.focus {
+    .circle__container {
+      .circle {
+        border-color: $primary_hover;
+
+        &::after {
+          background-color: $primary_hover;
+        }
+      }
+    }
+  }
+}

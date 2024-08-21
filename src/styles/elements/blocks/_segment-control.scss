@@ -1,0 +1,32 @@
+.constanta-segment-control {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  flex-wrap: nowrap;
+
+  .constanta-btn-toggle:not(:first-child) {
+    position: relative;
+
+    border-left: none;
+
+    margin-left: -1px;
+
+    &::before {
+      position: absolute;
+      top: 0;
+
+      content: '';
+
+      height: 100%;
+      width: 1px;
+    }
+
+    &::before {
+      left: 0;
+    }
+
+    &:hover::before {
+      background-color: $primary_hover;
+    }
+  }
+}

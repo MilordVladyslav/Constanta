@@ -1,0 +1,170 @@
+.constanta-date-picker {
+  position: relative;
+
+  &.light {
+    background: $background_light;
+    box-shadow: $elevation_light_1;
+
+    .constanta-date-picker {
+      &__header {
+        &--title {
+          color: $l_text_weak;
+        }
+      }
+
+      &__month-select {
+        border-color: $l_border_decorative;
+
+        &--controller {
+          @include svg_color($l_content_gray);
+        }
+      }
+    }
+  }
+
+  &.dark {
+    background: $background_dark;
+    box-shadow: $elevation_dark_1;
+
+    .constanta-date-picker {
+      &__header {
+        &--title {
+          color: $d_text_weak;
+        }
+      }
+
+      &__month-select {
+        border-color: $d_border_decorative;
+
+        &--month {
+          color: $d_text_main;
+        }
+
+        &--controller {
+          @include svg_color($d_content_gray);
+        }
+      }
+    }
+  }
+}
+
+.constanta-date-picker {
+  padding: 8px;
+
+  &__header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0 16px;
+
+    &--title {
+      @include font_style_body_medium;
+    }
+  }
+
+  &__month-select {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0 16px;
+
+    border: {
+      top: 1px solid;
+      bottom: 1px solid;
+    }
+
+    margin: 4px 0;
+    padding: 4px 0;
+
+    &--controller {
+      @include strict_size(16px, 16px);
+    }
+
+    &--month {
+      @include font_style_label_medium;
+    }
+  }
+
+  &__calendar {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 16px;
+  }
+
+  &__footer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    @include strict_size(28px, false);
+  }
+
+  &.vertical {
+    .constanta-date-picker__calendar {
+      flex-direction: column;
+    }
+  }
+}
+
+/**
+  * Years
+  */
+
+$constanta_datepicker_years: 20px + 8px + 4px + 4px;
+
+.constanta-date-picker__years {
+  &.light {
+    background: $background_light;
+  }
+
+  &.dark {
+    background: $background_dark;
+
+    .constanta-date-picker__years--year {
+      &:not(.current-year) {
+        color: $d_text_main;
+      }
+    }
+  }
+}
+
+.constanta-date-picker__years {
+  position: absolute;
+  top: $constanta_datepicker_years;
+  left: 0;
+
+  width: 100%;
+  height: calc(100% - $constanta_datepicker_years);
+
+  padding: {
+    bottom: 8px;
+  }
+
+  &--container {
+    display: grid;
+    justify-content: center;
+    grid-template-columns: repeat(auto-fit, minmax(76px, max-content));
+
+    width: 100%;
+    height: 100%;
+  }
+
+  &--year {
+    @include strict_size(32px, false);
+
+    &:hover {
+      background-color: rgba($color: $ui_decorative_light_blue, $alpha: 0.05);
+    }
+
+    &.current-year {
+      color: $secondary_default;
+    }
+
+    &.selected {
+      border-radius: 2px;
+      background-color: $secondary_default !important;
+      color: white !important;
+    }
+  }
+}

@@ -1,0 +1,99 @@
+.constanta-textarea {
+  position: relative;
+
+  * {
+    text-align: left;
+  }
+
+  textarea {
+    resize: none;
+
+    padding: 8px 12px;
+
+    width: 100%;
+  }
+}
+
+.large.constanta-textarea {
+  textarea {
+    @include font_style_body_large;
+  }
+}
+
+.medium.constanta-textarea {
+  textarea {
+    @include font_style_body_medium;
+  }
+}
+
+.light.constanta-textarea {
+  textarea {
+    color: $l_text_main;
+
+    background-color: $background_light;
+
+    @include input_border($l_border_clickable);
+  }
+
+  &.disabled {
+    textarea {
+      border-color: $l_disabled_border;
+
+      background-color: $l_disabled_background;
+
+      color: $l_disabled_text;
+    }
+  }
+}
+
+.dark.constanta-textarea {
+  textarea {
+    color: $d_text_main;
+
+    background-color: $background_dark;
+
+    @include input_border($d_border_clickable);
+  }
+
+  &.disabled {
+    textarea {
+      border-color: $d_disabled_border;
+
+      background-color: $d_disabled_background;
+
+      color: $d_disabled_text;
+    }
+  }
+}
+
+.constanta-textarea:not(.disabled) {
+  &:hover {
+    textarea {
+      border-color: $primary_hover;
+    }
+  }
+
+  &.warning {
+    textarea {
+      border-color: $additional_colors_yellow_warning;
+
+      box-shadow: $focused_warning;
+    }
+  }
+
+  &.errors {
+    textarea {
+      border-color: $additional_colors_red_error;
+
+      box-shadow: $focused_error;
+    }
+  }
+
+  &.focus {
+    textarea {
+      border-color: $primary_hover;
+
+      box-shadow: $focused_primary;
+    }
+  }
+}

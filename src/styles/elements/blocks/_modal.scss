@@ -1,0 +1,89 @@
+.constanta-modal {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 900;
+
+  overflow-y: auto;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 2.75rem;
+
+  background-color: rgba($color: $background_opacity, $alpha: 0.5);
+
+  &__content {
+    position: relative;
+
+    padding: 32px;
+
+    margin: auto;
+
+    width: 100%;
+    max-width: max-content;
+
+    &--header {
+      position: absolute;
+      top: 0;
+      left: 0;
+
+      padding: 8px;
+
+      display: flex;
+      align-items: flex-end;
+      justify-content: flex-end;
+
+      width: 100%;
+
+      button.close {
+        @include strict_size(16px, 16px);
+
+        svg {
+          width: 100%;
+          height: 100%;
+        }
+      }
+    }
+  }
+}
+
+.light.constanta-modal {
+  .constanta-modal__content {
+    background-color: $background_light;
+
+    &--header {
+      svg {
+        @include svg_color($l_content_gray);
+      }
+    }
+  }
+}
+
+.dark.constanta-modal {
+  color: $d_text_main;
+
+  .constanta-modal__content {
+    background-color: $background_dark;
+
+    &--header {
+      svg {
+        @include svg_color($d_content_gray);
+      }
+    }
+  }
+}
+
+.constanta-modal-footer-actions {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 0 12px;
+
+  .constanta-btn {
+    width: 100%;
+  }
+}

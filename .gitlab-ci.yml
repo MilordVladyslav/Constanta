@@ -1,0 +1,91 @@
+include:
+  - '$CI_SERVER_URL/api/v4/projects/593/repository/files/dockerBuild.gitlab-ci.yml/raw?ref=master&private_token=$GITLAB_TOKEN&workaround=dockerBuild.gitlab-ci.yml'
+  - '$CI_SERVER_URL/api/v4/projects/593/repository/files/secure.gitlab-ci.yml/raw?ref=master&private_token=$GITLAB_TOKEN&workaround=secure.gitlab-ci.yml'
+
+variables:
+  GCP_PROJECT_ID: pim-project-73fa
+  CLUSTER_ZONE: europe-west3
+  ARTIFACT_REGISTRY: europe-west3-docker.pkg.dev
+  PROJECT_GROUP: 'true'
+  IMAGE_CVE_CHECK: 'true'
+  CREATE_ENV_FILE: 'false'
+  CI_PROJECT_NAMESPACE: 'pim'
+
+stages:
+  - build
+  - scan-image
+  - push-tags
+  - build_and_publish
+  - notify
+
+prod:build:
+  extends: .build
+  variables:
+    SERVICES: deploy
+  environment:
+    name: prod
+  only:
+    - main
+  tags:
+    - kubernetes
+    - shared_vpc
+    - shop
+
+image-scan:
+  extends: .scan
+  stage: scan-image
+  variables:
+    TRIVY_CRIT_EXIT_CODE: 1
+  rules:
+    - if: $CI_COMMIT_BRANCH == "demo"
+    - if: $CI_COMMIT_BRANCH == "main"
+      variables:
+        _ENVIRONMENT_NAME: 'prod'
+  tags:
+    - kubernetes
+    - shared_vpc
+    - shop
+
+push-tags:
+  extends: .push-tags
+  rules:
+    - if: $CI_COMMIT_BRANCH == "demo"
+    - if: $CI_COMMIT_BRANCH == "main"
+      variables:
+        _ENVIRONMENT_NAME: 'prod'
+  tags:
+    - kubernetes
+    - shared_vpc
+    - shop
+
+build_and_publish:
+  image: node:latest
+  stage: build_and_publish
+  before_script:
+    - npm install -g pnpm@8
+  only:
+    - main
+  script:
+    - pnpm install
+    - pnpm run build
+    - echo "//${CI_SERVER_HOST}/api/v4/projects/${CI_PROJECT_ID}/packages/npm/:_authToken=${CI_JOB_TOKEN}">.npmrc
+    - git config --global user.email "${GIT_USER_EMAIL}"
+    - git config --global user.name "${GIT_USER_NAME}"
+    - pnpm publish --no-git-checks
+  tags:
+    - kubernetes
+    - shared_vpc
+    - shop
+
+notify:
+  image: node:latest
+  stage: notify
+  only:
+    - main
+  script:
+    - NPM_PACKAGE_VERSION=$(node -p "require('./package.json').version")
+    - 'curl -X POST -H "Content-type: application/json" --data "{\"version\":\"${NPM_PACKAGE_VERSION}\"}" ${SLACK_WEBHOOK_URL}'
+  tags:
+    - kubernetes
+    - shared_vpc
+    - shop

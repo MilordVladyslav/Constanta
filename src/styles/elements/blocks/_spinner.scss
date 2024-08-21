@@ -1,0 +1,10 @@
+svg.constanta-spinner {
+  transform-origin: center center;
+  animation: constanta-spinner 1s forwards linear infinite;
+}
+
+@keyframes constanta-spinner {
+  100% {
+    transform: rotate(360deg);
+  }
+}

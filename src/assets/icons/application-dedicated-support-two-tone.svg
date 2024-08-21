@@ -1,0 +1,8 @@
+<svg width="24" height="24" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <path d="M3 12a2 2 0 0 1 2-2h1v6H5a2 2 0 0 1-2-2v-2Z" fill="#F85A00" fill-opacity=".05"/>
+    <path d="M6 10h.75A.75.75 0 0 0 6 9.25V10Zm0 6v.75h.75V16H6Zm-1-5.25h1v-1.5H5v1.5Zm.25-.75v6h1.5v-6h-1.5ZM6 15.25H5v1.5h1v-1.5ZM3.75 14v-2h-1.5v2h1.5ZM5 15.25c-.69 0-1.25-.56-1.25-1.25h-1.5A2.75 2.75 0 0 0 5 16.75v-1.5Zm0-6A2.75 2.75 0 0 0 2.25 12h1.5c0-.69.56-1.25 1.25-1.25v-1.5Z" fill="#F85A00"/>
+    <path d="M12 19a1 1 0 1 1 0 2h-2a1 1 0 1 1 0-2h2Z" stroke="#F85A00" stroke-width="1.5" stroke-linejoin="round"/>
+    <path d="M21 14a2 2 0 0 1-2 2h-1v-6h1a2 2 0 0 1 2 2v2Z" fill="#F85A00" fill-opacity=".05"/>
+    <path d="M18 16h-.75v.75H18V16Zm0-6v-.75a.75.75 0 0 0-.75.75H18Zm1 5.25h-1v1.5h1v-1.5Zm-.25.75v-6h-1.5v6h1.5ZM18 10.75h1v-1.5h-1v1.5ZM20.25 12v2h1.5v-2h-1.5ZM19 10.75c.69 0 1.25.56 1.25 1.25h1.5A2.75 2.75 0 0 0 19 9.25v1.5Zm0 6A2.75 2.75 0 0 0 21.75 14h-1.5c0 .69-.56 1.25-1.25 1.25v1.5Z" fill="#F85A00"/>
+    <path d="M18 16V9A6 6 0 1 0 6 9v7M5 16v1a3 3 0 0 0 3 3h1.5" stroke="#F85A00" stroke-width="1.5" stroke-linejoin="round"/>
+</svg>

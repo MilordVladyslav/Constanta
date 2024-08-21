@@ -1,0 +1,47 @@
+.constanta-alert-modal {
+  .constanta-modal__content {
+    padding: 24px;
+  }
+
+  &__container {
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-start;
+    gap: 0 12px;
+  }
+
+  &__icon {
+    @include strict_size(32px, 32px);
+  }
+
+  &__content {
+    width: 100%;
+
+    &--actions {
+      display: flex;
+      align-items: flex-end;
+      justify-content: flex-end;
+      gap: 0 8px;
+    }
+  }
+
+  &.light {
+    .constanta-alert-modal {
+      &__content {
+        &--text {
+          color: $l_text_weak;
+        }
+      }
+    }
+  }
+
+  &.dark {
+    .constanta-alert-modal {
+      &__content {
+        &--text {
+          color: $d_text_weak;
+        }
+      }
+    }
+  }
+}

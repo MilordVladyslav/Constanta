@@ -1,0 +1,21 @@
+.constanta-controller-controller-feedback {
+  display: flex;
+  flex-direction: column;
+  gap: $row_height 0;
+
+  li p {
+    @include font_style_body_medium;
+  }
+
+  &.warnings {
+    li p {
+      color: $additional_colors_yellow_warning;
+    }
+  }
+
+  &.errors {
+    li p {
+      color: $additional_colors_red_error;
+    }
+  }
+}

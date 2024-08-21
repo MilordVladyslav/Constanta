@@ -1,0 +1,226 @@
+$max_margin_count_as_row: 30;
+$sides: (top, bottom, left, right);
+
+@for $i from 0 to ($max_margin_count_as_row + 1) {
+  @each $side in $sides {
+    .m-#{$side}-#{$i} {
+      margin-#{$side}: #{$i * $row_height};
+    }
+
+    .p-#{$side}-#{$i} {
+      padding-#{$side}: #{$i * $row_height};
+    }
+  }
+}
+
+@for $i from 1 to $column_max_count {
+  .col-#{$i} {
+    width: 100%;
+    max-width: #{($column_sidebar_close * $i) + ($column_gap * ($i - 1))};
+  }
+
+  .min-col-#{$i} {
+    min-width: #{($column_sidebar_close * $i) + ($column_gap * ($i - 1))};
+  }
+}
+
+.center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.flex-block {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.w {
+  &-full {
+    width: 100%;
+  }
+}
+
+.white-space-clear {
+  &,
+  & * {
+    white-space: normal !important;
+  }
+}
+
+.html-tag-tr {
+  display: table-row;
+}
+
+.remove-min-width {
+  min-width: initial !important;
+}
+
+.col-gap {
+  @include col_gap;
+}
+
+.color-d-text-link {
+  color: $d_text_link;
+
+  &-i {
+    color: $d_text_link !important;
+  }
+}
+
+.color-l-text-link {
+  color: $l_text_link;
+
+  &-i {
+    color: $l_text_link !important;
+  }
+}
+
+.color-d-text-link-used {
+  color: $d_text_link_used;
+
+  &-i {
+    color: $d_text_link_used !important;
+  }
+}
+
+.color-l-text-link-used {
+  color: $l_text_link_used;
+
+  &-i {
+    color: $l_text_link_used !important;
+  }
+}
+
+.color-d-text-main {
+  color: $d_text_main;
+
+  &-i {
+    color: $d_text_main !important;
+  }
+}
+
+.color-l-text-main {
+  color: $l_text_main;
+
+  &-i {
+    color: $l_text_main !important;
+  }
+}
+
+.color-d-text-weak {
+  color: $d_text_weak;
+
+  &-i {
+    color: $d_text_weak !important;
+  }
+}
+
+.color-l-text-weak {
+  color: $l_text_weak;
+
+  &-i {
+    color: $l_text_weak !important;
+  }
+}
+
+.color-d-text-weaker {
+  color: $d_text_weaker;
+
+  &-i {
+    color: $d_text_weaker !important;
+  }
+}
+
+.color-l-text-weaker {
+  color: $l_text_weaker;
+
+  &-i {
+    color: $l_text_weaker !important;
+  }
+}
+
+// cursor
+
+$cursors: (auto,  default,  none,  context-menu,  help,  pointer,  progress,  wait,  cell,  crosshair,  text,  vertical-text,  alias,  copy,  move,  no-drop,  c,  grab,  grabbing,  all-scroll,  col-resize,  row-resize,  n-resize,  e-resize,  s-resize,  w-resize,  ne-resize,  nw-resize,  se-resize,  sw-resize,  ew-resize,  ns-resize,  nesw-resize,  nwse-resize,  zoom-in,  zoom-out);
+
+@each $c in $cursors {
+  .cursor-#{$c} {
+    cursor: #{$c};
+
+    &-i {
+      cursor: #{$c} !important;
+    }
+  }
+}
+
+// font-weight
+
+$font_widths: ('l': lighter, '100': 100, '200': 200, '300': 300, '400': 400, 'n': normal, '500': 500, '600': 600, '700': 700, '800': 800, '900': 900, 'b': bold, 'br': bolder);
+
+@each $key, $value in $font_widths {
+  .f-w-#{$key} {
+    font-weight: $value;
+
+    &-i {
+      font-weight: $value !important;
+    }
+  }
+}
+
+// text-align
+
+$text_aligns: ('c':  center, 'r':  right, 'l':  left, 'j':  justify);
+
+@each $key, $value in $text_aligns {
+  .t-a-#{$key} {
+    text-align: $value;
+
+    &-i {
+      text-align: $value !important;
+    }
+  }
+}
+
+// white-space
+
+$white_space: ('n': normal, 'nw': nowrap, 'pre': pre, 'pre-w': pre-wrap, 'pre-l': pre-line, 'bs': break-spaces);
+
+@each $key, $value in $white_space {
+  .w-s-#{$key} {
+    white-space: $value;
+
+    &-i {
+      white-space: $value !important;
+    }
+  }
+}
+
+// text-transform
+
+$text_transforms: ('u': uppercase, 'c': capitalize, 'l': lowercase);
+
+@each $key, $value in $text_transforms {
+  .t-t-#{$key} {
+    text-transform: $value;
+
+    &-i {
+      text-transform: $value !important;
+    }
+  }
+}
+
+// user-select
+
+$user_selects: ('a': auto, 't': text, 'n': none, 'c': contain, 'all': all);
+
+@each $key, $value in $user_selects {
+  .u-s-#{$key} {
+    user-select: $value;
+
+    &-i {
+      user-select: $value !important;
+    }
+  }
+}

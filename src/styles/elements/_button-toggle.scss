@@ -1,0 +1,91 @@
+.light.constanta-btn-toggle {
+  border: 1px solid $l_border_clickable;
+
+  &:disabled {
+    &.active {
+      background-color: $l_disabled_background;
+    }
+
+    border-color: $l_disabled_border;
+
+    color: $l_disabled_text;
+
+    @include svg_color($l_disabled_content);
+  }
+
+}
+
+.dark.constanta-btn-toggle {
+  color: $d_text_main;
+
+  border: 1px solid $d_border_clickable;
+
+  &:disabled {
+    &.active {
+      background-color: $d_disabled_background;
+    }
+
+    border-color: $d_disabled_border;
+
+    color: $d_disabled_text;
+
+    @include svg_color($d_disabled_content);
+  }
+}
+
+.constanta-btn-toggle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: nowrap;
+  gap: 0 4px;
+
+  border-radius: 2px;
+
+  white-space: nowrap;
+
+  user-select: none;
+
+  @include btn_sizes;
+  font-weight: 400 !important;
+
+  transition: $trs;
+
+  &:not(.active):not(:disabled) {
+    &:hover {
+      border-color: $primary_hover;
+
+      color: $primary_hover;
+
+      @include svg_color($primary_hover);
+    }
+
+    &:active {
+      border-color: $primary_pressed;
+
+      color: $primary_pressed;
+
+      @include svg_color($primary_pressed);
+    }
+  }
+
+  &.active:not(:disabled) {
+    border-color: $primary_default;
+
+    background-color: $primary_default;
+
+    color: $l_text_white;
+
+    &:hover {
+      border-color: $primary_hover;
+
+      background-color: $primary_hover;
+    }
+
+    &:active {
+      border-color: $primary_pressed;
+
+      background-color: $primary_pressed;
+    }
+  }
+}
